@@ -6,6 +6,7 @@ using UnityEngine;
 public class GOLCameraMove_Mouse : MonoBehaviour
 {
     public Camera CameraMain;
+    public GOLDataEditor DataEditor;
 
     private Vector3 _cameraStartPos;
     private Vector3 _mouseStartPos;
@@ -27,6 +28,8 @@ public class GOLCameraMove_Mouse : MonoBehaviour
             var delta = Input.mousePosition - _mouseStartPos;
             delta /= this.CameraMain.pixelHeight / (2 * this.CameraMain.orthographicSize);
             this.CameraMain.transform.localPosition = _cameraStartPos - delta;
+            
+            this.DataEditor.OnViewChanged();
         }
     }
 }

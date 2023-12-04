@@ -13,6 +13,8 @@ public class GOLView : MonoBehaviour
     private bool _ticking = false;
     private float _currentTickTime = 0;
 
+    public bool Playing => _ticking;
+
     private void Update()
     {
         this.Tick();

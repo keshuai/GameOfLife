@@ -4,6 +4,7 @@
 public class GOLDataEditorEventMouseScrollWheel : MonoBehaviour
 {
     public Camera MainCamera;
+    public GOLDataEditor DataEditor;
     public float MouseScrollWheelScale = 0.5f;
     
 
@@ -24,5 +25,7 @@ public class GOLDataEditorEventMouseScrollWheel : MonoBehaviour
         var orthographicSize = this.MainCamera.orthographicSize;
         orthographicSize = Mathf.Clamp(orthographicSize + scroll * MouseScrollWheelScale * this.MainCamera.orthographicSize, 3f, 200f);
         this.MainCamera.orthographicSize = orthographicSize;
+        
+        this.DataEditor.OnViewChanged();
     }
 }

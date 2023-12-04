@@ -14,6 +14,8 @@ public class GOLUI : MonoBehaviour
     public Slider Slider_RunInterval;
 
     public GameObject EditorSelectPoint;
+
+    public AnimationCurve RunSpeedTransformation;
     
     public void EventClear()
     {
@@ -69,6 +71,7 @@ public class GOLUI : MonoBehaviour
 
     public void EventRunInterval()
     {
-        this.View.EventRunInterval(this.Slider_RunInterval.value);
+        var runInterval = this.RunSpeedTransformation.Evaluate(this.Slider_RunInterval.value);
+        this.View.EventRunInterval(runInterval);
     }
 }
